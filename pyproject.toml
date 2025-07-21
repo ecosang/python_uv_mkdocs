@@ -1,0 +1,24 @@
+[project]
+name = "python-uv-mkdocs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocstrings-python>=1.16.12",
+    "numpy>=2.3.1",
+    "pandas>=2.3.1",
+    "scipy>=1.16.0",
+]
+[tool.setuptools]
+py-modules = ["demoprogram"]
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.6.15",
+    "mkdocstrings>=0.29.1",
+    "mkdocstrings-python>=1.16.12",
+    "pymdown-extensions>=10.16",
+    "pytest>=8.4.1",
+]

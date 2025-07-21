@@ -1,0 +1,68 @@
+site_name: Demoprogram Package
+site_description: A simple demonstration Python package with utility and arithmetic functions
+site_author: Demo Author
+site_url: https://ecosang.github.io/python_uv_mkdocs/
+
+# Repository
+repo_name: ecosang/python_uv_mkdocs
+repo_url: https://github.com/ecosang/python_uv_mkdocs
+edit_uri: edit/main/docs/
+
+# Theme
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+# Navigation
+nav:
+  - Home: index.md
+  - API Reference:
+    - Utility Functions: api/utility.md
+    - Arithmetic Functions: api/calc.md
+
+# Plugins
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [demoprogram]
+          options:
+            show_source: true
+            show_root_heading: true
+            show_category_heading: true
+            show_signature_annotations: true
+            show_bases: true
+            show_submodules: true
+            heading_level: 2
+            members_order: source
+            docstring_style: google
+            filters: ["!^_"]
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true 
