@@ -1,4 +1,4 @@
-name: Deploy Documentation
+name: Deploy Documentation (uv)
 
 on:
   push:
@@ -22,23 +22,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v1
         with:
-          python-version: '3.12'
+          version: "latest"
       
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs>=1.5.0
-          pip install mkdocs-material>=9.0.0
-          pip install mkdocstrings>=0.24.0
-          pip install mkdocstrings-python>=1.7.0
-          pip install pymdown-extensions>=10.0.0
-          pip install -e .
+          uv add mkdocs mkdocs-material mkdocstrings mkdocstrings-python pymdown-extensions
+          uv pip install -e .
       
       - name: Build documentation
-        run: mkdocs build
+        run: uv run mkdocs build
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
